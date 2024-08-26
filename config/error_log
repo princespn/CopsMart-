@@ -1,0 +1,8 @@
+[02-Jun-2024 17:20:27 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/rdwclx6bh757/public_html/vendor.copsmart.in/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/rdwclx6bh757/public_html/vendor.copsmart.in/config/cache.php on line 21
+[04-Jun-2024 07:31:52 UTC] PHP Fatal error:  Uncaught Error: Call to undefined function env() in /home/rdwclx6bh757/public_html/vendor.copsmart.in/config/cache.php:21
+Stack trace:
+#0 {main}
+  thrown in /home/rdwclx6bh757/public_html/vendor.copsmart.in/config/cache.php on line 21

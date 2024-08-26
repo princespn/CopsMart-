@@ -1,0 +1,24 @@
+// Fonts
+@import url('https://fonts.googleapis.com/css?family=Nunito');
+//datatable css
+@import url('https://cdn.datatables.net/1.10.19/css/dataTables.bootstrap4.min.css');
+
+// font awesome
+$fa-font-path: "../webfonts";
+
+@import "~@fortawesome/fontawesome-free/scss/fontawesome.scss";
+@import "~@fortawesome/fontawesome-free/scss/solid.scss";
+@import "~@fortawesome/fontawesome-free/scss/brands.scss";
+
+// Variables
+@import 'variables';
+
+// Bootstrap
+@import '~bootstrap/scss/bootstrap';
+@import '~admin-lte/dist/css/adminlte.css';
+@import '~bootstrap-select/dist/css/bootstrap-select.min.css';
+
+.router-link-active {
+    background-color: darkorange;
+    color:white !important;
+}

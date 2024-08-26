@@ -1,0 +1,7 @@
+[25-May-2022 16:09:28 Asia/Calcutta] PHP Notice:  Undefined index: total in /home/rdwclx6bh757/public_html/vendor.copsmart.in/checksum/checksum.php on line 9
+[25-May-2022 16:11:42 Asia/Calcutta] PHP Notice:  Undefined index: total in /home/rdwclx6bh757/public_html/vendor.copsmart.in/checksum/checksum.php on line 9
+[25-May-2022 16:12:06 Asia/Calcutta] PHP Notice:  Undefined index: total in /home/rdwclx6bh757/public_html/vendor.copsmart.in/checksum/checksum.php on line 9
+[25-May-2022 16:12:32 Asia/Calcutta] PHP Notice:  Undefined index: total in /home/rdwclx6bh757/public_html/vendor.copsmart.in/checksum/checksum.php on line 9
+[25-May-2022 16:15:49 Asia/Calcutta] PHP Notice:  Undefined index: total in /home/rdwclx6bh757/public_html/vendor.copsmart.in/checksum/checksum.php on line 9
+[25-May-2022 16:16:47 Asia/Calcutta] PHP Notice:  Undefined index: total in /home/rdwclx6bh757/public_html/vendor.copsmart.in/checksum/checksum.php on line 9
+[02-Jun-2022 06:04:41 UTC] PHP Warning:  Illegal string offset 'order_id' in /home/rdwclx6bh757/public_html/vendor.copsmart.in/checksum/checksum.php on line 51

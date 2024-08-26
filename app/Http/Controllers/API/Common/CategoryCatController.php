@@ -1,0 +1,156 @@
+<?php
+
+namespace App\Http\Controllers\API\Common;
+
+use Illuminate\Http\Request;
+use App\Http\Controllers\Controller;
+
+use App\Category;
+use App\Product;
+class CategoryCatController extends Controller
+{
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function index($categoryId)
+    {
+        return Category::where('parent_id', $categoryId)->get();
+    }
+
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
+    public function create($categoryId)
+    {
+    }
+
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+     */
+    public function store(Request $request, $categoryId)
+    {
+
+        $this->validate($request, [
+            'name' => 'required|string|max:191',
+            'image'=>'required',
+            'parent_id' => 'required|numeric',
+        ]);
+
+         if($request->image){
+            $name = time().'.' . explode('/', explode(':', substr($request->image, 0, strpos($request->image, ';')))[1])[1];
+            \Image::make($request->image)->save(public_path('uploads/images/category/').$name);
+            $request->merge(['image' => $name]);
+        }
+        $category = new Category();
+        $category->name = ucwords($request->name);
+        $category->parent_id = $request->parent_id;
+        $category->admin_id = $request->admin_id;
+        $category->vendor_id = $request->vendor_id;
+        $category->image = $request->image;
+        $category->is_active = $request->is_active;
+        $category->save();
+        return [
+            'message' => 'created Successfully',
+        ];
+    }
+
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($id)
+    {
+        return Category::find($id);
+    }
+
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($id)
+    {
+        //
+    }
+
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request,$categoryId, $id)
+    {
+
+        $category = Category::findOrFail($id);
+        $this->validate($request, [
+            'name' => 'required|string|max:191',
+            'parent_id' => 'required|numeric'
+        ]);
+        $oldImage = $category->image;
+        if($request->image)
+        {
+            $name = time().'.' . explode('/', explode(':', substr($request->image, 0, strpos($request->image, ';')))[1])[1];
+            \Image::make($request->image)->save(public_path('uploads/images/category/').$name);
+            $request->merge(['image' => $name]);
+        }
+        if(!empty($request->image))
+        {
+            $request->merge(['image' => $request->image]);
+        }
+        else
+        {
+            $request->merge(['image' => $oldImage]);
+        }
+        $cat=ucwords($request->name);
+        $request->merge(['name' => $cat]);
+        $data = $request->only('parent_id','vendor_id','name','is_active','image');
+        if($category->update($data)){
+            return [
+                'message' => 'Updated Successfully',
+                'image' => $request->image
+            ];
+        }
+    }
+
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($categoryId,$id)
+    {
+        $slab = Category::findOrFail($id);
+        $product=Product::where('sub_category_id',$id)->get();
+        if(count($product)>0)
+        {
+            return [
+                'status'=>202,
+                'message' => "Can't Delete Category Alloted To Product !"
+            ];
+        }
+        else
+        {
+            $slab->delete();
+            // delete the category
+            return [
+                'message' => 'Category Deleted !'
+            ];
+        }
+       // return ['success' => $slab->delete() ] ;
+    }
+
+    
+}

@@ -1,0 +1,3 @@
+SR.No,name,description,category_id,sub_category_id,sub_sub_category_id,barcode,hsn,mrp,gst,maxqty,weight,other,tags,size,color,hide,brand_id
+1,TEst 1,Adidas S20190 Mens Navy Blue Track Pant,,94,107,95,62034300,1799,5,2,1N,Adidas S20190 Mens Navy Blue Track Pant,26,55,2,0,181
+2,TEst 2,Adidas S20192 Mens While Track Pant,,94,107,95,62034300,1799,5,2,1N,Adidas S20192 Mens While Track Pant,26,55,2,1,181

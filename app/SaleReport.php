@@ -1,0 +1,86 @@
+<?php
+
+namespace App;
+
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\SoftDeletes;
+
+class SaleReport extends Model
+{   
+
+    protected $fillable=[
+        'user_id',
+        'vendor_id',
+        'order_id',
+        'amount',
+        'purchase_taxable',
+        'purchase_value',
+        'purchase_gst',
+        'taxable_value',
+        'sales_sgst',
+        'sales_cgst',
+        'sales_igst',
+        'sales_gst',
+        'total_amount',
+        'other_charges',
+        'final_amount',
+        'taxable_value_0',
+        'gst_0',
+        'cgst_0',
+        'sgst_0',
+        'taxable_value_0.25',
+        'gst_0.25',
+        'cgst_0.25',
+        'sgst_0.25',
+        'taxable_value_1',
+        'gst_1',
+        'cgst_1',
+        'sgst_1',
+        'taxable_value_2',
+        'gst_2',
+        'cgst_2',
+        'sgst_2',
+        'taxable_value_3',
+        'gst_3',
+        'cgst_3',
+        'sgst_3',
+        'taxable_value_5',
+        'gst_5',
+        'cgst_5',
+        'sgst_5',
+        'taxable_value_6',
+        'gst_6',
+        'cgst_6',
+        'sgst_6',
+        'taxable_value_12',
+        'gst_12',
+        'cgst_12',
+        'sgst_12',
+        'taxable_value_18',
+        'gst_18',
+        'cgst_18',
+        'sgst_18',
+        'taxable_value_28',
+        'gst_28',
+        'cgst_28',
+        'sgst_28',
+        'pg_charges',
+        'pg_mode',
+        'pg_actual_charge',
+        'pg_deduct',
+        'remain_amount',
+        'pg_delivery_charge',
+        'to_settle',
+        'vendor_profit',
+        'bank',
+        'company',
+        'is_active',
+        'is_deleted',
+        'created_at',
+        'updated_at',
+        'deleted_at',
+    ];
+
+        
+    protected $dates = ['deleted_at'];
+}
